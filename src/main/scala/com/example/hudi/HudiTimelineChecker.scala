@@ -73,8 +73,8 @@ object HudiTimelineChecker extends App with LazyLogging {
   }
 
   private[hudi] def checkFutureInstant(instant: String): Boolean = {
-    //val now = LocalDateTime.now().format(instantFormatter)
-    val now = LocalDateTime.now().format(instantFormatter0_10_0)
+    val now = LocalDateTime.now().format(instantFormatter)
+    //val now = LocalDateTime.now().format(instantFormatter0_10_0)
     if(instant > now) {
       logger.warn(s"Instant in the future, Thread: ${Thread.currentThread()}, instant: ${instant}, now: ${now}")
       true
